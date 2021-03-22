@@ -1,0 +1,45 @@
+<ui:composition 
+    template="../Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form>
+        <b:panel title="NUEVO">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="NOMBRE"/>
+                <p:inputText value="#{gestionBodegaControl.nombre}"/>
+                <p:outputLabel value="DESCRIPCION"/>
+                <p:inputText value="#{gestionBodegaControl.descripcion}"/>
+                <p:outputLabel value="CANTIDAD"/>
+                <p:inputText value="#{gestionBodegaControl.cantidad}"/>
+                <p:outputLabel value="ESTADO"/>
+                <p:selectBooleanCheckbox value="#{gestionBodegaControl.estado}" itemLabel="DISPONIBLE"/>
+                <p:commandButton  value="GUARDAR" styleClass="rounded-button" action="#{gestionBodegaControl.guardar()}"/>
+            </p:panelGrid>
+        </b:panel>
+        <p:panel header="LISTA DE BODEGA">
+            <p:dataTable value="#{gestionBodegaControl.listGestionBodega}" var="th" >
+                <p:column headerText="NOMBRE">
+                    <p:outputLabel value="#{th.nombre}"/>
+                </p:column>
+                <p:column headerText="DESCRIPCION">
+                    <p:outputLabel value="#{th.descripcion}"/> 
+                </p:column>
+                 <p:column headerText="CANTIDAD">
+                     <p:outputLabel value="#{th.cantidad}"/>  
+                </p:column>
+                 <p:column headerText="ESTADO">
+                     <p:outputLabel value="#{th.estado}"/> 
+                </p:column>
+                <p:column headerText="ACTUALIZAR">
+                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button"/>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>    

@@ -1,0 +1,55 @@
+<ui:composition 
+    template="../Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form>
+        <b:panel title="NUEVO">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="PRECIO"/>
+                <p:inputText value="#{facturacionControl.precio}"/>
+                <p:outputLabel value="SERVICIO"/>
+                <p:inputText value="#{facturacionControl.servicio}"/>
+                <p:outputLabel value="TOTAL"/>
+                <p:inputText value="#{facturacionControl.total}"/>
+                 <p:outputLabel value="IVA"/>
+                 <p:inputText value="#{facturacionControl.iva}"/>
+                 <p:commandButton  value="GUARDAR" styleClass="rounded-button" action="#{facturacionControl.guardar()}" />
+            </p:panelGrid>
+        </b:panel>
+        <p:panel header="LISTA DE FACTURACION">
+            <p:dataTable value="" var="th">
+                 <p:column headerText="IDE DE VENTA">
+                    <p:outputLabel value=""/>
+                </p:column>
+                 <p:column headerText="ID DE CLIENTE">
+                    <p:outputLabel value=""/>
+                </p:column>
+                <p:column headerText="PRECIO">
+                    <p:outputLabel value=""/>
+                </p:column>
+                <p:column headerText="TOTAL PARCIAL">
+                    <p:outputLabel value=""/>
+                </p:column>
+                 <p:column headerText="SERVICIO">
+                     <p:outputLabel value=""/>
+                </p:column>
+                 <p:column headerText="TOTAL">
+                     <p:outputLabel value=""/>
+                </p:column>
+                 <p:column headerText="IVA">
+                     <p:outputLabel value=""/>
+                </p:column>
+                <p:column headerText="ACTUALIZAR">
+                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>    
+

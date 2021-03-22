@@ -1,0 +1,48 @@
+<ui:composition 
+    template="../Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <ui:define name="content">
+        <h:form>
+        <b:panel title="NUEVO">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="NOMBRE"/>
+                <p:inputText value="#{caracteristicaControl.nombre}"/>
+                <p:outputLabel value="DESCRIPCION"/>
+                <p:inputText value="#{caracteristicaControl.descripcion}"/>
+                <p:outputLabel value="CANTIDAD"/>
+                <p:inputText value="#{caracteristicaControl.cantidad}"/>
+                <p:commandButton  value="GUARDAR" styleClass="rounded-button" action="#{caracteristicaControl.guardar()}"/>
+                       <div class="p-field p-col-12 p-md-4">
+                <p:outputLabel for="@next" value="Grouping"/>
+                <p:selectOneMenu  value="#{gestionBodegaControl.nombre}">
+                    <f:selectItem itemLabel="Select One" itemValue="#{th.nombre}"/>
+                    <f:selectItems value="#{th.nombre}"/>
+                </p:selectOneMenu>
+            </div>
+            </p:panelGrid>
+        </b:panel>
+        <p:panel header="LISTA DE CARACTERISTICAS">
+            <p:dataTable value="#{caracteristicaControl.listCaracteristica}" var="th"  >
+                <p:column headerText="NOMBRE">
+                    <p:outputLabel value="#{th.nombre}" />
+                </p:column>
+                <p:column headerText="DESCRIPCION">
+                    <p:outputLabel value="#{th.descripcion}" /> 
+                </p:column>
+                 <p:column headerText="CANTIDAD">
+                     <p:outputLabel value="#{th.cantidad}" />  
+                </p:column>
+                <p:column headerText="ACTUALIZAR">
+                    <p:commandButton type="button" value="Actualizar" styleClass="rounded-button"/>
+                </p:column>
+            </p:dataTable>
+            
+        </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>    
